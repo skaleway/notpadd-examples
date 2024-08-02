@@ -12,11 +12,11 @@ const Blogs: React.FC = () => {
 
   const fetchThem = async () => {
     const headers = new Headers({
-      next_notpadd_userId: "user_2hoy34no9fxbFjEqmv8zyz3sMFw",
-      next_notpadd_projectId: "2db16ab3-93ae-4693-bf99-9f95cd2733ed",
-      get_only_public_articles: "True",
+      USER_KEY: "dXNlcl8yaHBiQzJTME9yY0Zhd09lYjc0TENIa1NNTk4",
+      USER_SECRET: "MzYxNGEyMDAtOTI4Ni00MGFlLTlkMTAtOGU5MGRjMzZjNWRl",
+      get_only_public_articles: "true",
       // Uncomment these lines if you need to send these headers
-      // get_all_articles: "True",
+      //get_all_articles: "true",
       // get_only_private_articles: "",
     });
 

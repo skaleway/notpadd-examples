@@ -5,12 +5,7 @@ import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { Article } from "@/types";
 import Image from "next/image";
-import "@blocknote/core/fonts/inter.css";
-
-import dynamic from "next/dynamic";
-
-const BlogContent = dynamic(() => import("./_components/Blog"), { ssr: false });
-
+import { NotpaddContent } from "notpadd-content/client";
 const ArticlePage = ({ params }: { params: { articleId: string } }) => {
   const searchParams = useSearchParams();
   const [article, setArticle] = useState<Article | null>(null);
@@ -19,22 +14,20 @@ const ArticlePage = ({ params }: { params: { articleId: string } }) => {
 
   const articleId = searchParams.get("id");
 
-  if (!articleId) return alert("article id require");
-
   useEffect(() => {
     const getArticle = async () => {
       try {
-        const response = await fetch(
-          apiEndpoint + `/${params.articleId}?id=${articleId}`,
-          {
-            headers: {
-              next_notpadd_userId: "user_2hoy34no9fxbFjEqmv8zyz3sMFw",
-              next_notpadd_projectId: "2db16ab3-93ae-4693-bf99-9f95cd2733ed",
-            },
-          }
-        );
+        const response = await fetch(apiEndpoint + `/${articleId}`, {
+          headers: {
+            USER_KEY: "dXNlcl8yaHBiQzJTME9yY0Zhd09lYjc0TENIa1NNTk4",
+            USER_SECRET: "MzYxNGEyMDAtOTI4Ni00MGFlLTlkMTAtOGU5MGRjMzZjNWRl",
+          },
+        });
 
         const data: Article = await response.json();
+
+        console.log(data);
+
         setArticle(data);
       } catch (error) {
         console.log("error: ", error);
@@ -43,6 +36,10 @@ const ArticlePage = ({ params }: { params: { articleId: string } }) => {
 
     getArticle();
   }, [articleId]);
+
+  if (!articleId) return alert("article id require");
+
+  // console.log(article);
 
   return (
     <div className="min-h-screen ">
@@ -59,7 +56,11 @@ const ArticlePage = ({ params }: { params: { articleId: string } }) => {
             />
           </div>
           <h1 className="text-3xl my-4">{article.title}</h1>
-          <BlogContent content={article.content} />
+
+          <NotpaddContent
+            content={JSON.stringify(article?.content)}
+            theme="light"
+          />
         </div>
       )}
     </div>

@@ -1,6 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### WELCOME TO NOTPADD EXAMPLES REPO
 
-## Getting Started
+The main aim of this repo is to help you(the developer) fetch your content more easily using different methods and tools
 
 First, run the development server:
 

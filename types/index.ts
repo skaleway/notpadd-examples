@@ -2,7 +2,7 @@ import { Block } from "@blocknote/core";
 
 export type Article = {
   id: string;
-  content: Block[];
+  content: string;
   title: string;
   displayImage: string;
   description: string;

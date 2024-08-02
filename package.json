@@ -9,10 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@blocknote/core": "^0.14.1",
-    "@blocknote/mantine": "^0.14.1",
-    "@blocknote/react": "^0.14.1",
     "next": "14.2.4",
+    "notpadd-content": "^0.0.1",
     "react": "^18",
     "react-dom": "^18"
   },
